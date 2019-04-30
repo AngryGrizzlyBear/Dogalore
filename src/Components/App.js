@@ -3,11 +3,14 @@ import axios from 'axios'
 
 class App extends Component {
 
-    async componentDidMount() {
+    componentDidMount() {
         axios.get('https://dog.ceo/api/breeds/image/random')
-            .then(function (response) {
-                console.log(response)
+            .then(response => {
+                console.log(response.data);
             })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     render() {
