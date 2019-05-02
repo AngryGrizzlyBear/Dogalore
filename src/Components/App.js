@@ -20,10 +20,22 @@ class App extends Component {
             });
     }
 
-    render() {
+    imageCall() {
         const { imageURL } = this.state;
+
+         return (
+             <img src={imageURL} alt='dog' />
+         )
+    }
+
+    render() {
+
+        // const { imageURL } = this.state;
         return (
-            <img src={imageURL} alt='dog' />
+            <button onClick={this.imageCall()}>
+                test
+            </button>
+            //<img src={imageURL} alt='dog' />
         );
     }
 }
