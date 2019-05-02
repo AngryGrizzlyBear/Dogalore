@@ -10,32 +10,40 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
+    onClick = () => {
         axios.get('https://dog.ceo/api/breeds/image/random')
             .then(response => {
-             this.setState({imageURL: response.data.message})
+                this.setState({imageURL: response.data.message})
             })
             .catch(error => {
                 console.log(error);
             });
-    }
+    };
 
-    imageCall() {
-        const { imageURL } = this.state;
+    // imageCall() {
+    //     const {imageURL} = this.state;
+    //
+    //     return (
+    //         <img src={imageURL} alt='dog'/>
+    //     )
+    // }
 
-         return (
-             <img src={imageURL} alt='dog' />
-         )
-    }
 
     render() {
+        const {imageURL} = this.state;
 
-        // const { imageURL } = this.state;
         return (
-            <button onClick={this.imageCall()}>
-                test
-            </button>
-            //<img src={imageURL} alt='dog' />
+            <div>
+                {/*{this.imageCall()}*/}
+                <img src={imageURL} alt='dog'/>
+                <div>
+                <button onClick={this.onClick}>
+                    test
+                </button>
+                </div>
+            </div>
+
+
         );
     }
 }
