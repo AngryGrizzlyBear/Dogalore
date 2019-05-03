@@ -25,13 +25,13 @@ class App extends Component {
     };
 
     onBreedRequest = () => {
-      axios.get(`https://dog.ceo/api/breed/${this.state.breed}/images/random`)
-          .then(response => {
-              this.setState({imageURL: response.data.message})
-          })
-          .catch(error => {
-              console.log(error)
-          });
+        axios.get(`https://dog.ceo/api/breed/${this.state.breed}/images/random`)
+            .then(response => {
+                this.setState({imageURL: response.data.message})
+            })
+            .catch(error => {
+                console.log(error)
+            });
     };
 
     render() {
@@ -42,19 +42,19 @@ class App extends Component {
                 {imageURL && <img src={imageURL} alt='dog'/>}
                 <div>
                     <div>
-                    <button onClick={this.onRandomDogRequest}>
-                        Random!
-                    </button>
+                        <button onClick={this.onRandomDogRequest}>
+                            Random!
+                        </button>
                     </div>
                     <div>
                         <select value={this.state.breed} onChange={this.handleChange}>
                             <option value="empty">Select a breed!</option>
                             <option value="Shiba">Shiba</option>
-                            <option value="Norwegian Elkhound">Norwegian Elkhound</option>
+                            <option value="elkhound/norwegian">Norwegian Elkhound</option>
                             <option value="Akita"> Akita</option>
                         </select>
-                        <button>
-                            {`Get ${ this.state.breed || 'Dog'}!`  }
+                        <button onClick={this.onBreedRequest}>
+                            {`Get ${this.state.breed || 'Dog'}!`}
                         </button>
                     </div>
                 </div>
