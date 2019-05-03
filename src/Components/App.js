@@ -14,7 +14,7 @@ class App extends Component {
         this.setState({breed: event.target.value});
     };
 
-    onClick = () => {
+    onRandomDogRequest = () => {
         axios.get('https://dog.ceo/api/breeds/image/random')
             .then(response => {
                 this.setState({imageURL: response.data.message})
@@ -24,6 +24,16 @@ class App extends Component {
             });
     };
 
+    onBreedRequest = () => {
+      axios.get(`https://dog.ceo/api/breed/${this.state.breed}/images/random`)
+          .then(response => {
+              this.setState({imageURL: response.data.message})
+          })
+          .catch(error => {
+              console.log(error)
+          });
+    };
+
     render() {
         const {imageURL} = this.state;
         console.log(this.state.breed);
@@ -31,14 +41,18 @@ class App extends Component {
             <div>
                 {imageURL && <img src={imageURL} alt='dog'/>}
                 <div>
-                    <button onClick={this.onClick}>
+                    <div>
+                    <button onClick={this.onRandomDogRequest}>
                         Random!
                     </button>
+                    </div>
+                    <div>
                     <select value={this.state.breed} onChange={this.handleChange}>
                         <option value="Shiba">Shiba</option>
                         <option value="Norwegian Elkhound">Norwegian Elkhound</option>
                         <option value="Akita"> Akita</option>
                     </select>
+                    </div>
                 </div>
             </div>
         );
