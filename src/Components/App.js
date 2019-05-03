@@ -6,9 +6,13 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            imageURL: '',
+            imageURL: undefined,
         }
     }
+
+    handleChange = (event) => {
+        this.setState({breed: event.target.value});
+    };
 
     onClick = () => {
         axios.get('https://dog.ceo/api/breeds/image/random')
@@ -22,15 +26,15 @@ class App extends Component {
 
     render() {
         const {imageURL} = this.state;
-
+        console.log(this.state.breed);
         return (
             <div>
-                <img src={imageURL} alt='dog'/>
+                {imageURL && <img src={imageURL} alt='dog'/>}
                 <div>
                     <button onClick={this.onClick}>
-                        See the Dogs!
+                        Random!
                     </button>
-                    <select>
+                    <select value={this.state.breed} onChange={this.handleChange}>
                         <option value="Shiba">Shiba</option>
                         <option value="Norwegian Elkhound">Norwegian Elkhound</option>
                         <option value="Akita"> Akita</option>
