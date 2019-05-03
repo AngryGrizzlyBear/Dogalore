@@ -27,9 +27,14 @@ class App extends Component {
             <div>
                 <img src={imageURL} alt='dog'/>
                 <div>
-                <button onClick={this.onClick}>
-                    See the Dogs!
-                </button>
+                    <button onClick={this.onClick}>
+                        See the Dogs!
+                    </button>
+                    <select>
+                        <option value="Shiba">Shiba</option>
+                        <option value="Norwegian Elkhound">Norwegian Elkhound</option>
+                        <option value="Akita"> Akita</option>
+                    </select>
                 </div>
             </div>
         );
