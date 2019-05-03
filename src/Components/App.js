@@ -7,8 +7,21 @@ class App extends Component {
         super(props);
         this.state = {
             imageURL: undefined,
+            allBreeds: [],
         }
     }
+
+    componentDidMount()  {
+        axios.get('https://dog.ceo/api/breeds/list')
+            .then(response => {
+                this.setState({allBreeds: response.data.message})
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+
 
     handleChange = (event) => {
         this.setState({breed: event.target.value});
