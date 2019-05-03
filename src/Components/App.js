@@ -47,11 +47,15 @@ class App extends Component {
                     </button>
                     </div>
                     <div>
-                    <select value={this.state.breed} onChange={this.handleChange}>
-                        <option value="Shiba">Shiba</option>
-                        <option value="Norwegian Elkhound">Norwegian Elkhound</option>
-                        <option value="Akita"> Akita</option>
-                    </select>
+                        <select value={this.state.breed} onChange={this.handleChange}>
+                            <option value="empty">Select a breed!</option>
+                            <option value="Shiba">Shiba</option>
+                            <option value="Norwegian Elkhound">Norwegian Elkhound</option>
+                            <option value="Akita"> Akita</option>
+                        </select>
+                        <button>
+                            {`Get ${ this.state.breed || 'Dog'}!`  }
+                        </button>
                     </div>
                 </div>
             </div>
