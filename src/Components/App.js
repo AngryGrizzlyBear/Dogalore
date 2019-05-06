@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import { concat } from 'lodash'
 
 class App extends Component {
 
@@ -8,6 +9,7 @@ class App extends Component {
     this.state = {
       imageURL: undefined,
       allBreeds: [],
+      previousImages: [],
     }
   }
 
@@ -29,7 +31,10 @@ class App extends Component {
   onRandomDogRequest = () => {
     axios.get('https://dog.ceo/api/breeds/image/random')
       .then(response => {
-        this.setState({imageURL: response.data.message})
+        this.setState({
+          imageURL: response.data.message,
+          previousImages: concat(this.state.previousImages, response.data.message)
+        })
       })
       .catch(error => {
         console.log(error);
@@ -39,7 +44,9 @@ class App extends Component {
   onBreedRequest = () => {
     axios.get(`https://dog.ceo/api/breed/${this.state.breed}/images/random`)
       .then(response => {
-        this.setState({imageURL: response.data.message})
+        this.setState({
+          imageURL: response.data.message
+        })
       })
       .catch(error => {
         console.log(error)
@@ -48,6 +55,8 @@ class App extends Component {
 
   render() {
     const {imageURL} = this.state;
+    const {previousImages} = this.state;
+    console.log(previousImages);
     return (
       <div>
         {imageURL && <img src={imageURL} alt='dog'/>}
