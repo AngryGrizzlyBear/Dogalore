@@ -54,6 +54,13 @@ class App extends Component {
       });
   };
 
+  onReset = () => {
+    this.setState({
+      index: null,
+      images: []
+    })
+  };
+
   render() {
     const image = this.state.images[this.state.index];
     return (
@@ -72,6 +79,11 @@ class App extends Component {
             </select>
             <button onClick={this.onBreedRequest}>
               {`Get ${this.state.breed || 'Dog'}!`}
+            </button>
+          </div>
+          <div>
+            <button onClick={this.onReset}>
+              Restart!
             </button>
           </div>
         </div>
