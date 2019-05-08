@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import { concat, last } from 'lodash'
+import { concat } from 'lodash'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      index: null,
       images: [],
       allBreeds: [],
     }
@@ -31,6 +32,7 @@ class App extends Component {
     axios.get('https://dog.ceo/api/breeds/image/random')
       .then(response => {
         this.setState({
+          index: this.state.images.length,
           images: concat(this.state.images, response.data.message)
         })
       })
@@ -43,6 +45,7 @@ class App extends Component {
     axios.get(`https://dog.ceo/api/breed/${this.state.breed}/images/random`)
       .then(response => {
         this.setState({
+          index: this.state.images.length,
           images: concat(this.state.images, response.data.message)
         })
       })
@@ -52,7 +55,7 @@ class App extends Component {
   };
 
   render() {
-    const image = last(this.state.images);
+    const image = this.state.images[this.state.index];
     return (
       <div>
         {image && <img src={image} alt='dog'/>}
