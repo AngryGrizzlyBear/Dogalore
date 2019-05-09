@@ -63,7 +63,7 @@ class App extends Component {
 
     onPreviousImage = () => {
         this.setState({
-            index: this.state[-1],
+            index: this.state.index === 0 ? this.state.index : this.state.index - 1
         });
     };
 
