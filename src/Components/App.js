@@ -67,6 +67,12 @@ class App extends Component {
         });
     };
 
+    onNextImage = () => {
+        this.setState( {
+            index: this.state.images.length === - 1  ? this.state.index : this.state.index + 1
+        })
+    };
+
     render() {
         const image = this.state.images[this.state.index];
         console.log(this.state.images);
@@ -94,6 +100,9 @@ class App extends Component {
                         </button>
                         <button onClick={this.onPreviousImage}>
                             Previous Image
+                        </button>
+                        <button onClick={this.onNextImage}>
+                            Next Image
                         </button>
                     </div>
                 </div>
