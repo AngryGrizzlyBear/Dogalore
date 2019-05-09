@@ -69,7 +69,7 @@ class App extends Component {
 
     onNextImage = () => {
         this.setState( {
-            index: this.state.images.length === - 1  ? this.state.index : this.state.index + 1
+            index: this.state.images.length - 1 === this.state.index  ? this.state.index : this.state.index + 1
         })
     };
 
