@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Dogalore/static/css/main.795991f2.chunk.css",
+    "main.js": "/Dogalore/static/js/main.0c217e77.chunk.js",
+    "main.js.map": "/Dogalore/static/js/main.0c217e77.chunk.js.map",
+    "runtime~main.js": "/Dogalore/static/js/runtime~main.b7bba15b.js",
+    "runtime~main.js.map": "/Dogalore/static/js/runtime~main.b7bba15b.js.map",
+    "static/js/2.a67503a1.chunk.js": "/Dogalore/static/js/2.a67503a1.chunk.js",
+    "static/js/2.a67503a1.chunk.js.map": "/Dogalore/static/js/2.a67503a1.chunk.js.map",
+    "index.html": "/Dogalore/index.html",
+    "precache-manifest.7552f8cf9695db4de2f41dce1a5f9b7e.js": "/Dogalore/precache-manifest.7552f8cf9695db4de2f41dce1a5f9b7e.js",
+    "service-worker.js": "/Dogalore/service-worker.js",
+    "static/css/main.795991f2.chunk.css.map": "/Dogalore/static/css/main.795991f2.chunk.css.map"
+  }
+}
